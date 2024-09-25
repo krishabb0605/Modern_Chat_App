@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
+import Chats from '../../layouts/dashboard/Chats';
 
 const GeneralApp = () => {
-
   return (
     <>
-      App
+      {/* chats */}
+      <Chats />
     </>
   );
 };
