@@ -47,8 +47,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-console.log(faker.image.avatar());
-
 const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
   const theme = useTheme();
 
@@ -83,7 +81,7 @@ const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
             <Typography variant='caption'>{msg}</Typography>
           </Stack>
         </Stack>
-        
+
         <Stack spacing={2} alignItems='center'>
           <Typography variant='caption' sx={{ fontWeight: 600 }}>
             {time}
