@@ -69,10 +69,10 @@ const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
               variant='dot'
             >
-              <Avatar src={`https://loremflickr.com/200/200?random=${id}`} />
+              <Avatar src={img} />
             </StyledBadge>
           ) : (
-            <Avatar src={`https://loremflickr.com/200/200?random=${id}`} />
+            <Avatar src={img} />
           )}
 
           <Stack spacing={0.3}>

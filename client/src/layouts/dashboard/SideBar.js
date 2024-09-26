@@ -141,7 +141,7 @@ const SideBar = () => {
 
           <IconButton>
             <Avatar
-              src={faker.image.avatar()}
+              src={faker.image.fashion()}
               id='basic-button'
               aria-controls={open ? 'basic-menu' : undefined}
               aria-haspopup='true'
