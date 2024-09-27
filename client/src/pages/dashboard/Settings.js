@@ -20,8 +20,8 @@ import {
   PencilCircle,
 } from 'phosphor-react';
 import { faker } from '@faker-js/faker';
-import Shortcuts from '../../sections/Settings/Shortcuts';
-import ThemeDialouge from '../../sections/Settings/ThemeDialouge';
+import Shortcuts from '../../sections/settings/Shortcuts';
+import ThemeDialouge from '../../sections/settings/ThemeDialouge';
 
 const Settings = () => {
   const theme = useTheme();
