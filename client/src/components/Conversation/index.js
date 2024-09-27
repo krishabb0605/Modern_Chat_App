@@ -20,7 +20,7 @@ const Conversation = () => {
         }}
         width='100%'
       >
-        <Message />
+        <Message menu={true} />
       </Box>
 
       {/* chat footer */}
