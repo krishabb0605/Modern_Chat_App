@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Divider,
@@ -17,9 +17,16 @@ import { MagnifyingGlass, Plus } from 'phosphor-react';
 import { SimpleBarStyle } from '../../components/Scrollbar';
 import { ChatList } from '../../data';
 import ChatElement from '../../components/ChatElement';
+import CreateGroup from '../../sections/main/CreateGroup';
 
 const Group = () => {
   const theme = useTheme();
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
   return (
     <>
       <Stack direction='row' sx={{ width: '100%' }}>
@@ -70,7 +77,7 @@ const Group = () => {
                 Create New Group
               </Typography>
 
-              <IconButton>
+              <IconButton onClick={() => setOpenDialog(true)}>
                 <Plus style={{ color: theme.palette.primary.main }} />
               </IconButton>
             </Stack>
@@ -122,6 +129,9 @@ const Group = () => {
 
         {/* todo =>  reuse conversation component */}
       </Stack>
+      {openDialog && (
+        <CreateGroup open={openDialog} handleClose={handleCloseDialog} />
+      )}
     </>
   );
 };
