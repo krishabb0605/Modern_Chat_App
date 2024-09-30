@@ -14,11 +14,40 @@ import { Nav_Buttons, Profile_Menu } from '../../data';
 import { Gear, Moon, Sun } from 'phosphor-react';
 import { faker } from '@faker-js/faker';
 import useSettings from '../../hooks/useSettings';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+const getPath = (index) => {
+  switch (index) {
+    case 0:
+      return '/app';
+
+    case 1:
+      return '/group';
+
+    case 2:
+      return '/call';
+
+    case 3:
+      return '/settings';
+
+    default:
+      break;
+  }
+};
 
 const SideBar = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const index = pathname.includes('settings')
+    ? 3
+    : pathname.includes('call')
+    ? 2
+    : pathname.includes('group')
+    ? 1
+    : 0;
 
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(index);
   const { onToggleMode } = useSettings();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -27,8 +56,28 @@ const SideBar = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const getMenupath = (index) => {
+    setSelected(0);
+    switch (index) {
+      case 0:
+        return '/profile';
+
+      case 1:
+        setSelected(3);
+        return '/settings';
+
+      case 2:
+        // update token
+        return '/auth/login';
+
+      default:
+        break;
+    }
   };
 
   return (
@@ -84,7 +133,10 @@ const SideBar = () => {
                 </Box>
               ) : (
                 <IconButton
-                  onClick={() => setSelected(el.index)}
+                  onClick={() => {
+                    setSelected(el.index);
+                    navigate(getPath(el.index));
+                  }}
                   sx={{
                     width: 'max-content',
                     color:
@@ -114,7 +166,10 @@ const SideBar = () => {
               </Box>
             ) : (
               <IconButton
-                onClick={() => setSelected(3)}
+                onClick={() => {
+                  setSelected(3);
+                  navigate(getPath(3));
+                }}
                 sx={{
                   width: 'max-content',
                   color:
@@ -168,8 +223,14 @@ const SideBar = () => {
             }}
           >
             <Stack spacing={1} px={1}>
-              {Profile_Menu.map((el) => (
-                <MenuItem onClick={handleClick}>
+              {Profile_Menu.map((el, index) => (
+                <MenuItem
+                  onClick={(event) => {
+                    handleClick(event);
+                    navigate(getMenupath(index));
+                    handleClose();
+                  }}
+                >
                   <Stack
                     sx={{ width: 100 }}
                     direction='row'
