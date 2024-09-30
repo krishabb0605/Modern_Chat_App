@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormProvider from '../../components/hook-form/FormProvider';
-import { Button, Link, Stack } from '@mui/material';
+import { Button, Stack } from '@mui/material';
 
 import RHFTextField from '../../components/hook-form/RHFTextField';
 import RHFAutocomplete from '../../components/hook-form/RHFAutocomplete';
@@ -26,12 +26,7 @@ const CreateGroupForm = ({ handleClose }) => {
     defaultValues: defaultValues,
   });
 
-  const {
-    reset,
-    setError,
-    handleSubmit,
-    formState: { errors },
-  } = methods;
+  const { reset, setError, handleSubmit } = methods;
 
   const onSubmit = async (data) => {
     try {

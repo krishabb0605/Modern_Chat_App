@@ -46,6 +46,118 @@ const Nav_Setting = [
   },
 ];
 
+const CallLogs = [
+  {
+    id: 0,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: false,
+    incoming: true,
+    online: false,
+  },
+  {
+    id: 1,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: true,
+    incoming: true,
+    online: true,
+  },
+  {
+    id: 2,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: false,
+    incoming: false,
+    online: false,
+  },
+  {
+    id: 3,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: true,
+    incoming: true,
+    online: false,
+  },
+  {
+    id: 4,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: false,
+    incoming: true,
+    online: true,
+  },
+  {
+    id: 5,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: false,
+    incoming: false,
+    online: true,
+  },
+  {
+    id: 6,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: false,
+    incoming: false,
+    online: true,
+  },
+  {
+    id: 7,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    missed: true,
+    incoming: true,
+    online: true,
+  },
+];
+
+const MembersList = [
+  {
+    id: 0,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    online: true,
+  },
+  {
+    id: 1,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    online: false,
+  },
+  {
+    id: 2,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    online: true,
+  },
+  {
+    id: 3,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    online: false,
+  },
+  {
+    id: 4,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    online: false,
+  },
+  {
+    id: 5,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    online: true,
+  },
+  {
+    id: 6,
+    img: faker.image.image(),
+    name: faker.name.fullName(),
+    online: false,
+  },
+];
+
 const ChatList = [
   {
     id: 0,
@@ -303,4 +415,6 @@ export {
   Message_options,
   Shared_links,
   Shared_documents,
+  CallLogs,
+  MembersList,
 };
